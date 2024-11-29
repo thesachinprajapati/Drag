@@ -87,3 +87,13 @@ papers.forEach(paper => {
   const p = new Paper();
   p.init(paper);
 });
+
+
+paper.addEventListener('touchstart', (e) => {
+  console.log("Touchstart detected");
+  this.holdingPaper = true;
+  // rest of the code...
+});
+paper.addEventListener('touchmove', (e) => {
+  console.log("Touchmove detected", e.touches[0].clientX, e.touches[0].clientY);
+});
