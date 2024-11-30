@@ -47,3 +47,46 @@ function startDrag(e) {
     document.addEventListener('touchmove', dragMove);
     document.addEventListener('touchend', dragEnd);
 }
+// script.js
+
+// Add your existing JavaScript code here, if any...
+
+
+
+papers.forEach(paper => {
+  let offsetX, offsetY;
+
+  // Handle the start of the drag
+  const startDrag = (event) => {
+    event.preventDefault(); // Prevent default behavior
+    const touch = event.touches ? event.touches[0] : event; // Get touch or mouse position
+    offsetX = touch.clientX - paper.getBoundingClientRect().left;
+    offsetY = touch.clientY - paper.getBoundingClientRect().top;
+    
+    paper.classList.add('dragging'); // Optional: Add a class to style dragging
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchend', endDrag);
+  };
+
+  // Handle the drag movement
+  const drag = (event) => {
+    const touch = event.touches ? event.touches[0] : event; // Get touch or mouse position
+    paper.style.left = `${touch.clientX - offsetX}px`;
+    paper.style.top = `${touch.clientY - offsetY}px`;
+  };
+
+  // Handle the end of the drag
+  const endDrag = () => {
+    paper.classList.remove('dragging'); // Remove dragging class
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('touchmove', drag);
+    document.removeEventListener('mouseup', endDrag);
+    document.removeEventListener('touchend', endDrag);
+  };
+
+  // Attach event listeners for both mouse and touch
+  paper.addEventListener('mousedown', startDrag);
+  paper.addEventListener('touchstart', startDrag);
+});
