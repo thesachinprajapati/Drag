@@ -75,3 +75,16 @@ p {
   
   // filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
 }
+@media (max-width: 600px) {
+  body {
+    font-size: 14px; /* Decrease the base font size */
+  }
+
+  .paper {
+    width: 80%; /* Decrease the width of the paper elements */
+    height: auto; /* Adjust height if necessary */
+    transform: scale(0.8); /* Scale down the paper elements */
+  }
+
+  /* Add additional styles for other elements if necessary */
+}
