@@ -8,9 +8,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(88,3,47);
-  background: linear-gradient(90deg, rgba(88,3,47,1) 0%, rgba(76,0,130,1) 8%, rgba(204,68,19,1) 59%, rgba(235,0,255,1) 100%); 
-  background-size: 1000px;
+  background: rgb(88, 3, 47);
+  background: linear-gradient(90deg, rgba(88, 3, 47, 1) 0%, rgba(76, 0, 130, 1) 8%, rgba(204, 68, 19, 1) 59%, rgba(235, 0, 255, 1) 100%);
+  background-size: cover; /* Change this to control how the background image is displayed */
   background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
   background-position: center center;
   background-blend-mode: multiply;
@@ -81,7 +81,7 @@ p {
   }
 
   .paper {
-    width: 80%; /* Decrease the width of the paper elements */
+    width:150px; /* Decrease the width of the paper elements */
     height: auto; /* Adjust height if necessary */
     transform: scale(0.8); /* Scale down the paper elements */
   }
