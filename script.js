@@ -1,3 +1,4 @@
+document.title = "Jevika - Drag the paper ";
 const papers = document.querySelectorAll('.paper');
 
 papers.forEach(paper => {
