@@ -23,6 +23,68 @@
       overflow: hidden;
     }
 
+    /* General styling for all inputs */
+
+
+/* Custom file input button */
+input {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease-in-out;
+}
+
+input:hover {
+  background-color: #ff4b3e;
+}
+
+/* Styling the file name display (after selecting a file) */
+.file-name {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ff6f61;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Custom file input label */
+.custom-file-label {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #2c2c2c;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom-file-label:hover {
+  background-color: #ff6f61;
+}
+
+.custom-file-label:active {
+  background-color: #ff4b3e;
+}
+
+/* Style for when file is selected */
+input[type="file"]:valid + .file-name {
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+
     /* Styling the upload modal */
     #uploadModal {
       display: flex;
@@ -118,8 +180,10 @@
   <!-- Upload Modal -->
   <div id="uploadModal">
     <h2>Upload Your Images</h2>
-    <input type="file" id="imageUpload" accept="image/*" multiple />
-    <button id="uploadButton">Upload Images</button>
+    <input type="file" id="fileInput1" accept="image/*" />
+    <input type="file" id="fileInput2" accept="image/*" />
+    <input type="file" id="fileInput3" accept="image/*" />
+    <button id="uploadButton">Upload All Images</button>
     <div id="previewContainer"></div>
   </div>
 
@@ -155,23 +219,27 @@
 
   <script>
     document.getElementById('uploadButton').addEventListener('click', function () {
-      const fileInput = document.getElementById('imageUpload');
+      const fileInput1 = document.getElementById('fileInput1');
+      const fileInput2 = document.getElementById('fileInput2');
+      const fileInput3 = document.getElementById('fileInput3');
       const previewContainer = document.getElementById('previewContainer');
       const uploadModal = document.getElementById('uploadModal');
       const mainContent = document.getElementById('mainContent');
 
-      // Clear previous preview
+      // Clear previous previews
       previewContainer.innerHTML = '';
 
-      const files = fileInput.files;
-      if (files.length === 3) {
+      // Get files from inputs
+      const files = [fileInput1.files[0], fileInput2.files[0], fileInput3.files[0]];
+
+      if (files.length === 3 && files.every(file => file !== undefined)) {
         const mainImages = [
           document.getElementById('mainImage1'),
           document.getElementById('mainImage2'),
           document.getElementById('mainImage3')
         ];
 
-        Array.from(files).forEach((file, index) => {
+        files.forEach((file, index) => {
           const reader = new FileReader();
 
           reader.onload = function (e) {
@@ -188,14 +256,15 @@
               uploadModal.style.display = 'none';
               mainContent.style.display = 'block';
             }
-          }
+          };
 
           reader.readAsDataURL(file);
         });
       } else {
-        alert('Pleaseupload exactly 3 images.');
+        alert('Please upload exactly 3 images.');
       }
-    }); </script>
+    });
+  </script>
 
   <script src="script.js"></script>
   <script src="mobile.js"></script>
