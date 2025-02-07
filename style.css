@@ -11,14 +11,24 @@ body {
   background: rgb(88, 3, 47);
   background: linear-gradient(90deg, rgba(88, 3, 47, 1) 0%, rgba(76, 0, 130, 1) 8%, rgba(204, 68, 19, 1) 59%, rgba(235, 0, 255, 1) 100%);
   background-size: cover; /* Change this to control how the background image is displayed */
-  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
+  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2016/07/retro-roses.jpg");
   background-position: center center;
   background-blend-mode: multiply;
   backdrop-filter: opacity(0%);
+  background-repeat: no-repeat;
+  
+}
+
+.maincontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .paper {
-  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2020/03/pink-paper.jpg");
   background-size: 500px;
   background-position: center center;
   padding: 20px 100px;
@@ -31,7 +41,7 @@ body {
 }
 
 .paper.heart {
-  position: relative;
+  position: absolute;
   width: 200px;
   height: 200px;
   padding: 0;
@@ -46,7 +56,7 @@ body {
 }
 
 img {
-  max-height: 200px;
+  max-height: 250px;
   width: 100%;
   user-select: none;
 }
@@ -67,13 +77,13 @@ img {
 
 p {
   font-family: 'Zeyada';
-  font-weight: 900;
+  font-weight: 700;
   font-size: 50px;
   color: rgb(0,0,100);
   opacity: 0.75;
   user-select: none;
-  
-  // filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
+  margin: 0;
+ filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
 }
 @media (max-width: 600px) {
   body {
@@ -87,4 +97,32 @@ p {
   }
 
   /* Add additional styles for other elements if necessary */
+}
+
+
+
+/* 🔹 Responsive Styling for Tablets */
+@media (max-width: 768px) {
+  .paper {
+    width: 200px;
+    padding: 15px;
+    font-size: 14px; /* Reduce text size */
+  }
+
+  .paper.image img {
+    width: 120px;
+  }
+}
+
+/* 🔹 Responsive Styling for Mobile Phones */
+@media (max-width: 480px) {
+  .paper {
+    width: 150px;
+    padding: 10px;
+    font-size: 12px; /* Further reduce text size */
+  }
+
+  .paper.image img {
+    width: 100px;
+  }
 }
