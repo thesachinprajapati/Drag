@@ -91,9 +91,11 @@ p {
   }
 
   .paper {
-    width:150px; /* Decrease the width of the paper elements */
+    width:250px; /* Decrease the width of the paper elements */
     height: auto; /* Adjust height if necessary */
-    transform: scale(0.8); /* Scale down the paper elements */
+    transform: scale(0.8); 
+    /* Scale down the paper elements */
+    font-size: 14px;
   }
 
   /* Add additional styles for other elements if necessary */
@@ -104,7 +106,7 @@ p {
 /* 🔹 Responsive Styling for Tablets */
 @media (max-width: 768px) {
   .paper {
-    width: 200px;
+    width:400px;
     padding: 15px;
     font-size: 14px; /* Reduce text size */
   }
@@ -117,12 +119,13 @@ p {
 /* 🔹 Responsive Styling for Mobile Phones */
 @media (max-width: 480px) {
   .paper {
-    width: 150px;
+    width: 250px;
     padding: 10px;
     font-size: 12px; /* Further reduce text size */
+    font-size: 14px;
   }
 
   .paper.image img {
-    width: 100px;
+    width: 200px;
   }
 }
